@@ -59,9 +59,9 @@ public class UserDAOImpl implements UserDAO {
 			throw new DAOException ("DAOException rentEquipment: "+e.getMessage());
 			
 			} finally{
+				
 			ConnectionManager.disconnectFromDB(rs, st, con);
-		}	
-		
+		}			
 	}
 	
 	@Override

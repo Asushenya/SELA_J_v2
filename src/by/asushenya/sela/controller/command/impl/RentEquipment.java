@@ -27,7 +27,7 @@ public class RentEquipment implements Command {
 		
 		user_id          = Integer.parseInt(initParams[1]);
 		equipment_id     = Integer.parseInt(initParams[2]);
-		equipment_price  = Float.parseFloat(initParams[3]); //не очень хорошо когда польззователь сам водит цену товара
+		equipment_price  = Float.parseFloat(initParams[3]); 
 		equipment_amount = Integer.parseInt(initParams[4]);
 		
 		ServiceFactory serviceFactoryObject = ServiceFactory.getInstance();
@@ -44,6 +44,7 @@ public class RentEquipment implements Command {
 		try{
 			clientService.rentEquipment(user, good);
 			response = "Equipment is successfylly rented";
+			
 		} catch(ServiceException e){
 			response = "Error duiring Rent Equipment procedure "+e.getMessage();
 		}

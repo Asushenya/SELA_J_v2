@@ -9,8 +9,7 @@ import by.asushenya.sela.dao.impl.UserDAOImpl;
 public class DAOFactory {
 	private static final DAOFactory daoFactory = new DAOFactory();
 	
-	private DAOFactory(){
-	}
+	private DAOFactory(){}	
 	
 	private EquipmentsDAO equipmentsDAO = new EquipmentDAOImpl();
 	private UserDAO userDAO = new UserDAOImpl();

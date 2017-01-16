@@ -33,8 +33,8 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 			
 			ps.setString(1, equipment.getName());
 			ps.setString(2, equipment.getKind());
-			ps.setFloat(3, equipment.getCost());
-			ps.setInt(4, equipment.getQuantity());
+			ps.setFloat (3, equipment.getCost());
+			ps.setInt   (4, equipment.getQuantity());
 		
 			ps.executeUpdate();
 		} catch (SQLException e){
@@ -42,6 +42,7 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 			throw new DAOException ("DAOException addEquipment: "+e.getMessage());
 			
 			} finally{
+				
 				ConnectionManager.disconnectFromDB(rs, st, con);
 			}	
 	}
@@ -54,7 +55,7 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 			st = con.createStatement();
 			rs = st.executeQuery("select user_id from rent where is_rented = true group by user_id;");
 			
-			while(rs.next()){ //перебираем пользователей которые должны что-то вернуть
+			while(rs.next()){ //перебираем пользователей которые должны вернуть снаряжение
 				Statement getUserByIdStatement = con.createStatement();
 				ResultSet userResultSet = getUserByIdStatement.executeQuery("select * from user where id = "+rs.getInt(1)); //получим информацию о пользователе
 				
@@ -93,10 +94,10 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 			
 			throw new DAOException("DAOException getOwerReport: "+e.getMessage());
 			
-			} finally{				
+			} finally{	
+				
 					ConnectionManager.disconnectFromDB(rs, st, con);			      
-			}
-		
+			}		
 	}
 	
 	@Override 
@@ -108,8 +109,7 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 			con = ConnectionManager.getDBEqupmentConnection();
 			st  = con.createStatement();
 			String sql = "select * from equipment";
-			rs  = st.executeQuery(sql);
-			
+			rs  = st.executeQuery(sql);			
 					
 			while(rs.next()){
 				response.append(rs.getInt(1));

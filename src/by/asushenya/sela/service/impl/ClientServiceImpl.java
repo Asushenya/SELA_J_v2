@@ -19,13 +19,13 @@ public class ClientServiceImpl implements ClientService {
 		    user.getPassword() == null)
 		throw new ServiceException("Incorrect user");
 		 
-	try{
-		
+	try{		
 		DAOFactory daoFactoryObject = DAOFactory.getInstance();
 		UserDAO userDAO = daoFactoryObject.getUserDAO();
 		userDAO.registeredNewUser(user);
 		
 	} catch(DAOException e){
+		
 			throw new ServiceException(e);
 		}
 	}
@@ -37,16 +37,18 @@ public class ClientServiceImpl implements ClientService {
 		throw new ServiceException("Incorrect user");	
 		
 		if(good.getId()     == 0    ||
-		   good.getAmount() == 0)
+		   good.getAmount() == 0	||
+		   good.getPrice()  == 0)
 		throw new ServiceException("Incorrect good");		
 		
-	try{
+	try{		
 		
 		DAOFactory daoFactoryObject = DAOFactory.getInstance();
 		UserDAO userDAO = daoFactoryObject.getUserDAO();
 		userDAO.rentEquipment(user, good);
 		
 	} catch(DAOException e){
+		
 			throw new ServiceException(e);
 		}
 	}
@@ -55,18 +57,19 @@ public class ClientServiceImpl implements ClientService {
 		
 		String response = "";
 		
-		if( user.getLogin()    == null ||
-			    user.getPassword() == null)
+		if( user.getLogin()        == null ||
+			user.getPassword() 	   == null)
 			throw new ServiceException("Incorrect user: incorrect login or password");
 		
-		try{
-			
+		try{			
 			DAOFactory daoFactoryObject = DAOFactory.getInstance();
 			UserDAO    userDAO = daoFactoryObject.getUserDAO();
 			
 			response = userDAO.signIn(user);
 			return response;
+			
 		} catch(DAOException e){
+			
 			throw new ServiceException(e);
 		}
 	}
@@ -85,6 +88,7 @@ public class ClientServiceImpl implements ClientService {
 			return response;
 			
 		} catch(DAOException e){
+			
 			throw new ServiceException(e);
 		}
 		

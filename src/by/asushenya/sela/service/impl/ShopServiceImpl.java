@@ -14,15 +14,16 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override 
 	public List<Ower> getOwerReport() throws ServiceException{
-	try{
-		DAOFactory daoObjectFactory = DAOFactory.getInstance();
-		EquipmentsDAO equipmentsDAO = daoObjectFactory.getEquipmentsDAO();
-		
-		return equipmentsDAO.getOwerReport();
-		
-		} catch(DAOException e){
-			throw new ServiceException(e);
-		}
+		try{
+			DAOFactory daoObjectFactory = DAOFactory.getInstance();
+			EquipmentsDAO equipmentsDAO = daoObjectFactory.getEquipmentsDAO();
+			
+			return equipmentsDAO.getOwerReport();
+			
+			} catch(DAOException e){
+				
+				throw new ServiceException(e);
+			}
 	
 	}
 	
@@ -40,6 +41,7 @@ public class ShopServiceImpl implements ShopService {
 			equipmentsDAO.addEquipment(equipment);
 			
 		} catch(DAOException e){
+			
 			throw new ServiceException (e);
 		}
 	}

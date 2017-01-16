@@ -7,9 +7,8 @@ public class Equipment {
 	private float price;
 	private int quantity;
 
-	public Equipment(){
-		
-	}
+	public Equipment(){}
+	
 	public Equipment(String title, String kind, float price, int quantity){
 		this.title    = title;
 		this.kind     = kind;
@@ -50,6 +49,7 @@ public class Equipment {
 	public void setCost(float cost) {
 		this.price = cost;
 	}
+	
 	public int getQuantity() {
 		return quantity;
 	}

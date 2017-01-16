@@ -18,6 +18,7 @@ public class GetAllEquipment implements Command {
 		try{
 			response = clientService.getAllEquipment();
 			return response;
+			
 		} catch(ServiceException e){
 			response = e.getMessage();
 		}

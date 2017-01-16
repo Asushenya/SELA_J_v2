@@ -7,6 +7,6 @@ import by.asushenya.sela.bean.Ower;
 import by.asushenya.sela.service.exception.ServiceException;
 
 public interface ShopService {
-	List<Ower> getOwerReport() 					 throws ServiceException;
-	void addNewEquipment(Equipment newEquipment) throws ServiceException;
+	List<Ower> getOwerReport() 					       throws ServiceException;
+	void       addNewEquipment(Equipment newEquipment) throws ServiceException;
 }

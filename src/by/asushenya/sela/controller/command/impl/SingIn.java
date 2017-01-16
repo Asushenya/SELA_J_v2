@@ -4,8 +4,6 @@ import by.asushenya.sela.controller.command.Command;
 import by.asushenya.sela.service.factory.ServiceFactory;
 import by.asushenya.sela.service.service.ClientService;
 
-import java.util.ServiceConfigurationError;
-
 import by.asushenya.sela.bean.User;
 
 import by.asushenya.sela.service.exception.ServiceException;
