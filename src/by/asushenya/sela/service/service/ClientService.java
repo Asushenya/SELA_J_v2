@@ -8,4 +8,5 @@ public interface ClientService {
 	void registration(User user)		    throws ServiceException;
 	void rentEquipment(User user,Good good) throws ServiceException;
 	String signIn	  (User user)			throws ServiceException;
+	String getAllEquipment()				throws ServiceException;
 }

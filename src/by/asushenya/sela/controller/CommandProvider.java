@@ -5,7 +5,7 @@ import java.util.Map;
 
 import by.asushenya.sela.controller.command.Command;
 import by.asushenya.sela.controller.command.impl.CommandName;
-
+import by.asushenya.sela.controller.command.impl.GetAllEquipment;
 import by.asushenya.sela.controller.command.impl.RegisteredNewUser;
 import by.asushenya.sela.controller.command.impl.RentEquipment;
 import by.asushenya.sela.controller.command.impl.SingIn;
@@ -21,6 +21,7 @@ public class CommandProvider {
 		repository.put(CommandName.REGISTERED_NEW_USER, new RegisteredNewUser());
 		repository.put(CommandName.RENT_EQUIPMENT,      new RentEquipment());
 		repository.put(CommandName.ADD_NEW_EQUIPMENT,   new AddNewEquipment());
+		repository.put(CommandName.GET_ALL_EQUIPMENT,   new GetAllEquipment());
 		repository.put(CommandName.GET_OWER_REPORT, 	new GetOwerReport());
 		repository.put(CommandName.SIGN_IN, 			new SingIn());
 		repository.put(CommandName.WRONG_REQUEST,       new WrongRequest());	  

@@ -2,20 +2,17 @@ package by.asushenya.sela.dao.impl;
 
 import by.asushenya.sela.dao.EquipmentsDAO;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-
 import by.asushenya.sela.bean.Equipment;
 import by.asushenya.sela.bean.User;
 import by.asushenya.sela.bean.Ower;
 import by.asushenya.sela.dao.exception.DAOException;
 import by.asushenya.sela.dao.util.ConnectionManager;
-
 
 import java.util.List;
 import java.util.ArrayList;
@@ -100,6 +97,35 @@ public class EquipmentDAOImpl implements  EquipmentsDAO{
 					ConnectionManager.disconnectFromDB(rs, st, con);			      
 			}
 		
+	}
+	
+	@Override 
+	public String getAllEquipment() throws DAOException{
+		
+		StringBuilder response = new StringBuilder();
+		
+		try{
+			con = ConnectionManager.getDBEqupmentConnection();
+			st  = con.createStatement();
+			String sql = "select * from equipment";
+			rs  = st.executeQuery(sql);
+			
+					
+			while(rs.next()){
+				response.append(rs.getInt(1));
+				response.append(" "+rs.getString(2));
+				response.append(" "+rs.getString(3));
+				response.append(" "+rs.getFloat(4));
+				response.append(" "+rs.getInt(5));
+				
+				response.append("\n");
+			}
+			return new String(response);
+			
+		} catch(SQLException e){
+			
+			throw new DAOException (e);
+		}
 	}
 	
 }

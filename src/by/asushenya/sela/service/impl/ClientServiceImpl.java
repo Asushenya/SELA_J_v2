@@ -4,6 +4,7 @@ import by.asushenya.sela.bean.Good;
 import by.asushenya.sela.bean.User;
 import by.asushenya.sela.service.service.ClientService;
 import by.asushenya.sela.dao.factory.DAOFactory;
+import by.asushenya.sela.dao.EquipmentsDAO;
 import by.asushenya.sela.dao.UserDAO;
 import by.asushenya.sela.dao.exception.DAOException;
 
@@ -68,5 +69,24 @@ public class ClientServiceImpl implements ClientService {
 		} catch(DAOException e){
 			throw new ServiceException(e);
 		}
+	}
+	
+	@Override
+	public String getAllEquipment() throws ServiceException {
+		
+		String response = "";
+		
+		try{
+			DAOFactory daoFactoryObject = DAOFactory.getInstance();
+			EquipmentsDAO clientService = daoFactoryObject.getEquipmentsDAO();
+			
+			response = clientService.getAllEquipment();
+			
+			return response;
+			
+		} catch(DAOException e){
+			throw new ServiceException(e);
+		}
+		
 	}
 }

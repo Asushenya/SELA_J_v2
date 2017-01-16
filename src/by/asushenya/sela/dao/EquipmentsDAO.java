@@ -8,5 +8,6 @@ import by.asushenya.sela.dao.exception.DAOException;
 
 public interface EquipmentsDAO {
 	void addEquipment(Equipment newEquipment) throws DAOException;
+	String getAllEquipment()				  throws DAOException;
 	List<Ower> getOwerReport() 				  throws DAOException;
 }

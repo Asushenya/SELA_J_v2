@@ -27,7 +27,7 @@ public class GetOwerReport implements Command {
 				
 					for(Equipment item: ower.getEquipments()){
 					
-						response.append(" "+item.getName() + item.getQuantity()+", ");
+						response.append(" "+item.getName() +" "+ item.getQuantity()+", ");
 					}
 					
 					response.append("\n");
